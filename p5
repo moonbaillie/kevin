@@ -1,0 +1,74 @@
+let detailX;
+let detailY;
+let detailZ;
+let detailQ;
+function setup() {
+  createCanvas(800, 600, WEBGL);
+  //x
+  detailX = createSlider(2, 24, 12);
+  detailX.position(10, height + 5);
+  detailX.style('width', '80px');
+  //y
+  detailY = createSlider(2, 24, 6);
+  detailY.position(100, height + 15);
+  detailY.style('width', '90px');
+  //z
+  detailZ = createSlider(3, 16, 3);
+  detailZ.position(10, height + 5);
+  detailZ.style('width', '80px');
+  //q
+  detailY = createSlider(3, 16, 3);
+  detailY.position(10, height + 5);
+  detailY.style('width', '80px');
+}
+
+function draw() {
+  
+  
+  stem(300, 200, 150);
+  roto(225, 375, 225);
+  carlos(250, 375, 275);
+  kevin(375, 415, 315);
+  stem(500, 400, 450);
+  roto(550, 475, 500);
+  carlos(20, 25, 35);
+  kevin(25, 30, 40);
+  stem(600, 450, 250);
+  roto(55, 47, 50);
+  carlos(30, 35, 27);
+  kevin(45, 41, 31);
+  stem(75, 40, 35);
+  cono(32, 45, 67);
+  carlos(32, 55, 24);
+  kevin(71, 15, 32);
+  
+}
+
+function stem () {
+  rotateY(millis() / 5000);
+  ellipsoid(125, 150, 150, detailX.value(), 24);
+}
+  
+  function roto() {
+    
+  rotateY(millis() / 5500);
+  ellipsoid(250, 125, 40, 12, detailY.value());
+
+}
+
+function cono () {
+  rotateX(frameCount * 0.01);
+  rotateZ(frameCount * 0.01);
+  cone(175, 220);
+}
+
+function carlos() {
+  rotateY(millis() / 6000);
+  cone(300, 365, detailZ.value(), 13);
+}
+
+function kevin() {
+  rotateY(millis() / 6500);
+  cone(250, 200, 16, detailY.value());
+}
+
